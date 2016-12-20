@@ -35,6 +35,7 @@
 #include "core/gimp.h"
 #include "core/gimpcontext.h"
 #include "core/gimpdocumentlist.h"
+#include "core/gimpdrawable-operation.h"
 #include "core/gimpimage.h"
 #include "core/gimpimage-color-profile.h"
 #include "core/gimpimage-convert-precision.h"
@@ -277,15 +278,49 @@ file_open_image (Gimp                *gimp,
 
   if (image)
     {
+      GimpPrecision old_precision = gimp_image_get_precision (image);
       gimp_image_undo_disable (image);
 
-      if (gimp_image_get_precision (image) != GIMP_PRECISION_FLOAT_LINEAR)
+      if (old_precision != GIMP_PRECISION_FLOAT_LINEAR)
+        {
+          gimp_image_convert_precision (image, GIMP_PRECISION_FLOAT_LINEAR,
+                                               GEGL_DITHER_NONE,
+                                               GEGL_DITHER_NONE,
+                                               GEGL_DITHER_NONE,
+                                               progress);
 
-        gimp_image_convert_precision (image, GIMP_PRECISION_FLOAT_LINEAR,
-                                             GEGL_DITHER_NONE,
-                                             GEGL_DITHER_NONE,
-                                             GEGL_DITHER_NONE,
-                                             progress);
+          if (old_precision == GIMP_PRECISION_U8_GAMMA)
+          {
+            GeglNode *ditherer = gegl_node_new_child (NULL,
+                                "operation", "gegl:noise-rgb",
+                                "red",   1.0/256.0,
+                                "green", 1.0/256.0,
+                                "blue",  1.0/256.0,
+                                "alpha", 1.0/256.0,
+                                "linear", FALSE,
+                                "gaussian", FALSE,
+                                NULL);
+            if (ditherer)
+              {
+                GList *l, *list;
+                list = gimp_image_get_layer_list (image);
+                for (l = list; l; l = g_list_next (l))
+                  {
+                    if (!gimp_viewable_get_children (l->data))
+                      gimp_drawable_apply_operation (l->data, progress,
+                                                    _("Dithering"), ditherer);
+                  }
+                list = gimp_image_get_channel_list (image);
+                for (l = list; l; l = g_list_next (l))
+                  {
+                    if (!gimp_viewable_get_children (l->data))
+                      gimp_drawable_apply_operation (l->data, progress,
+                                                    _("Dithering"), ditherer);
+                  }
+                g_object_unref (ditherer);
+              }
+          }
+        }
 
       gimp_image_import_color_profile (image, context, progress,
                                        run_mode == GIMP_RUN_INTERACTIVE ?
