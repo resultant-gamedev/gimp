@@ -289,7 +289,7 @@ gimp_layer_mode_effects_get_type (void)
 {
   static const GEnumValue values[] =
   {
-    { GIMP_NORMAL_MODE, "GIMP_NORMAL_MODE", "normal-mode" },
+    { GIMP_NORMAL_SRGB_MODE, "GIMP_NORMAL_SRGB_MODE", "normal-srgb-mode" },
     { GIMP_DISSOLVE_MODE, "GIMP_DISSOLVE_MODE", "dissolve-mode" },
     { GIMP_BEHIND_MODE, "GIMP_BEHIND_MODE", "behind-mode" },
     { GIMP_MULTIPLY_MODE, "GIMP_MULTIPLY_MODE", "multiply-mode" },
@@ -317,6 +317,7 @@ gimp_layer_mode_effects_get_type (void)
     { GIMP_LCH_CHROMA_MODE, "GIMP_LCH_CHROMA_MODE", "lch-chroma-mode" },
     { GIMP_LCH_COLOR_MODE, "GIMP_LCH_COLOR_MODE", "lch-color-mode" },
     { GIMP_LCH_LIGHTNESS_MODE, "GIMP_LCH_LIGHTNESS_MODE", "lch-lightness-mode" },
+    { GIMP_NORMAL_MODE, "GIMP_NORMAL_MODE", "normal-mode" },
     { GIMP_ERASE_MODE, "GIMP_ERASE_MODE", "erase-mode" },
     { GIMP_REPLACE_MODE, "GIMP_REPLACE_MODE", "replace-mode" },
     { GIMP_ANTI_ERASE_MODE, "GIMP_ANTI_ERASE_MODE", "anti-erase-mode" },
@@ -325,7 +326,7 @@ gimp_layer_mode_effects_get_type (void)
 
   static const GimpEnumDesc descs[] =
   {
-    { GIMP_NORMAL_MODE, NC_("layer-mode-effects", "Normal"), NULL },
+    { GIMP_NORMAL_SRGB_MODE, NC_("layer-mode-effects", "Normal (with sRGB gamma)"), NULL },
     { GIMP_DISSOLVE_MODE, NC_("layer-mode-effects", "Dissolve"), NULL },
     { GIMP_BEHIND_MODE, NC_("layer-mode-effects", "Behind"), NULL },
     { GIMP_MULTIPLY_MODE, NC_("layer-mode-effects", "Multiply"), NULL },
@@ -353,6 +354,7 @@ gimp_layer_mode_effects_get_type (void)
     { GIMP_LCH_CHROMA_MODE, NC_("layer-mode-effects", "Chroma (LCH)"), NULL },
     { GIMP_LCH_COLOR_MODE, NC_("layer-mode-effects", "Color (LCH)"), NULL },
     { GIMP_LCH_LIGHTNESS_MODE, NC_("layer-mode-effects", "Lightness (LCH)"), NULL },
+    { GIMP_NORMAL_MODE, NC_("layer-mode-effects", "Normal"), NULL },
     { GIMP_ERASE_MODE, NC_("layer-mode-effects", "Erase"), NULL },
     { GIMP_REPLACE_MODE, NC_("layer-mode-effects", "Replace"), NULL },
     { GIMP_ANTI_ERASE_MODE, NC_("layer-mode-effects", "Anti erase"), NULL },

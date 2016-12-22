@@ -69,7 +69,7 @@ GType gimp_layer_mode_effects_get_type (void) G_GNUC_CONST;
 
 typedef enum
 {
-  GIMP_NORMAL_MODE,
+  GIMP_NORMAL_SRGB_MODE,
   GIMP_DISSOLVE_MODE,
   GIMP_BEHIND_MODE,
   GIMP_MULTIPLY_MODE,
@@ -96,7 +96,8 @@ typedef enum
   GIMP_LCH_HUE_MODE,
   GIMP_LCH_CHROMA_MODE,
   GIMP_LCH_COLOR_MODE,
-  GIMP_LCH_LIGHTNESS_MODE
+  GIMP_LCH_LIGHTNESS_MODE,
+  GIMP_NORMAL_MODE
 } GimpLayerModeEffects;
 
 

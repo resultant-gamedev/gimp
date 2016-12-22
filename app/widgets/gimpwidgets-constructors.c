@@ -104,8 +104,9 @@ gimp_paint_mode_menu_new (gboolean with_behind_mode,
   GtkWidget    *combo;
 
   store = gimp_enum_store_new_with_values (GIMP_TYPE_LAYER_MODE_EFFECTS,
-                                           25,
+                                           26,
                                            GIMP_NORMAL_MODE,
+                                           GIMP_NORMAL_SRGB_MODE,
                                            GIMP_DISSOLVE_MODE,
 
                                            GIMP_LIGHTEN_ONLY_MODE,
@@ -168,7 +169,7 @@ gimp_paint_mode_menu_new (gboolean with_behind_mode,
   if (with_replace_modes)
     {
       gimp_enum_store_insert_value_after (GIMP_ENUM_STORE (store),
-                                          GIMP_NORMAL_MODE,
+                                          GIMP_NORMAL_SRGB_MODE,
                                           GIMP_REPLACE_MODE);
       gimp_enum_store_insert_value_after (GIMP_ENUM_STORE (store),
                                           GIMP_COLOR_ERASE_MODE,

@@ -66,7 +66,8 @@ get_layer_mode_function (GimpLayerModeEffects paint_mode,
 
   switch (paint_mode)
     {
-      case GIMP_NORMAL_MODE:        func = gimp_operation_normal_mode_process_pixels; break;
+      case GIMP_NORMAL_MODE:        func = gimp_operation_normal_mode_process_pixels; break; // XXX : does code using these functions properly
+      case GIMP_NORMAL_SRGB_MODE:   func = gimp_operation_normal_mode_process_pixels; break; // XXX : dealt with linear or not?
       case GIMP_DISSOLVE_MODE:      func = gimp_operation_dissolve_mode_process_pixels; break;
       case GIMP_BEHIND_MODE:        func = gimp_operation_behind_mode_process_pixels; break;
       case GIMP_MULTIPLY_MODE:      func = gimp_operation_multiply_mode_process_pixels; break;

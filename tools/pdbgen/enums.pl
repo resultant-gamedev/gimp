@@ -694,7 +694,7 @@ package Gimp::CodeGen::enums;
     GimpLayerModeEffects =>
 	{ contig => 1,
 	  header => 'core/core-enums.h',
-	  symbols => [ qw(GIMP_NORMAL_MODE GIMP_DISSOLVE_MODE
+	  symbols => [ qw(GIMP_NORMAL_SRGB_MODE GIMP_DISSOLVE_MODE
 			  GIMP_BEHIND_MODE GIMP_MULTIPLY_MODE
 			  GIMP_SCREEN_MODE GIMP_OVERLAY_MODE
 			  GIMP_DIFFERENCE_MODE GIMP_ADDITION_MODE
@@ -707,8 +707,8 @@ package Gimp::CodeGen::enums;
 			  GIMP_GRAIN_MERGE_MODE GIMP_COLOR_ERASE_MODE
 			  GIMP_NEW_OVERLAY_MODE GIMP_LCH_HUE_MODE
 			  GIMP_LCH_CHROMA_MODE GIMP_LCH_COLOR_MODE
-			  GIMP_LCH_LIGHTNESS_MODE) ],
-	  mapping => { GIMP_NORMAL_MODE => '0',
+			  GIMP_LCH_LIGHTNESS_MODE GIMP_NORMAL_MODE) ],
+	  mapping => { GIMP_NORMAL_SRGB_MODE => '0',
 		       GIMP_DISSOLVE_MODE => '1',
 		       GIMP_BEHIND_MODE => '2',
 		       GIMP_MULTIPLY_MODE => '3',
@@ -735,7 +735,8 @@ package Gimp::CodeGen::enums;
 		       GIMP_LCH_HUE_MODE => '24',
 		       GIMP_LCH_CHROMA_MODE => '25',
 		       GIMP_LCH_COLOR_MODE => '26',
-		       GIMP_LCH_LIGHTNESS_MODE => '27' }
+		       GIMP_LCH_LIGHTNESS_MODE => '27',
+		       GIMP_NORMAL_MODE => '28' }
 	},
     GimpBrushApplicationMode =>
 	{ contig => 1,

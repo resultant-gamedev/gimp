@@ -151,6 +151,7 @@ gimp_gegl_mode_node_set_mode (GeglNode             *node,
   switch (mode)
     {
     case GIMP_NORMAL_MODE:        operation = "gimp:normal-mode"; break;
+    case GIMP_NORMAL_SRGB_MODE:   operation = "gimp:normal-mode"; break;
     case GIMP_DISSOLVE_MODE:      operation = "gimp:dissolve-mode"; break;
     case GIMP_BEHIND_MODE:        operation = "gimp:behind-mode"; break;
     case GIMP_MULTIPLY_MODE:      operation = "gimp:multiply-mode"; break;
@@ -213,6 +214,7 @@ gimp_gegl_mode_node_set_mode (GeglNode             *node,
            "linear",    TRUE,
            NULL);
         break;
+    case GIMP_NORMAL_SRGB_MODE:
     case GIMP_OVERLAY_MODE:
     case GIMP_DIFFERENCE_MODE:
     case GIMP_HUE_MODE:

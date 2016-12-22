@@ -84,6 +84,7 @@
 static const GimpLayerModeEffects layer_modes[] =
 {
   GIMP_NORMAL_MODE,
+  GIMP_NORMAL_SRGB_MODE,
   GIMP_DISSOLVE_MODE,
   GIMP_MULTIPLY_MODE,
   GIMP_DIVIDE_MODE,

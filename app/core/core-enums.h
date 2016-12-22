@@ -154,7 +154,7 @@ GType gimp_layer_mode_effects_get_type (void) G_GNUC_CONST;
 
 typedef enum
 {
-  GIMP_NORMAL_MODE,          /*< desc="Normal"               >*/
+  GIMP_NORMAL_SRGB_MODE,     /*< desc="Normal (with sRGB gamma)" >*/
   GIMP_DISSOLVE_MODE,        /*< desc="Dissolve"             >*/
   GIMP_BEHIND_MODE,          /*< desc="Behind"               >*/
   GIMP_MULTIPLY_MODE,        /*< desc="Multiply"             >*/
@@ -182,6 +182,7 @@ typedef enum
   GIMP_LCH_CHROMA_MODE,      /*< desc="Chroma (LCH)"         >*/
   GIMP_LCH_COLOR_MODE,       /*< desc="Color (LCH)"          >*/
   GIMP_LCH_LIGHTNESS_MODE,   /*< desc="Lightness (LCH)"      >*/
+  GIMP_NORMAL_MODE,          /*< desc="Normal"               >*/
 
   /* internal modes, not available to the PDB */
   GIMP_ERASE_MODE      = 1000, /*< pdb-skip, desc="Erase"      >*/

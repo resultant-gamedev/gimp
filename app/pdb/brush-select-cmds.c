@@ -204,7 +204,7 @@ register_brush_select_procs (GimpPDB *pdb)
                                                   "paint mode",
                                                   "The initial paint mode",
                                                   GIMP_TYPE_LAYER_MODE_EFFECTS,
-                                                  GIMP_NORMAL_MODE,
+                                                  GIMP_NORMAL_SRGB_MODE,
                                                   GIMP_PARAM_READWRITE));
   gimp_pdb_register_procedure (pdb, procedure);
   g_object_unref (procedure);
@@ -278,7 +278,7 @@ register_brush_select_procs (GimpPDB *pdb)
                                                   "paint mode",
                                                   "The initial paint mode",
                                                   GIMP_TYPE_LAYER_MODE_EFFECTS,
-                                                  GIMP_NORMAL_MODE,
+                                                  GIMP_NORMAL_SRGB_MODE,
                                                   GIMP_PARAM_READWRITE));
   gimp_pdb_register_procedure (pdb, procedure);
   g_object_unref (procedure);
