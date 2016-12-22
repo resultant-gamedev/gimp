@@ -197,6 +197,50 @@ gimp_gegl_mode_node_set_mode (GeglNode             *node,
                  "linear",    linear,
                  "opacity",   opacity,
                  NULL);
+
+  switch (mode)
+    {
+    case GIMP_NORMAL_MODE:
+    case GIMP_DISSOLVE_MODE:
+    case GIMP_BEHIND_MODE:
+    case GIMP_MULTIPLY_MODE:
+    case GIMP_SCREEN_MODE:
+    case GIMP_ADDITION_MODE:
+    case GIMP_SUBTRACT_MODE:
+    case GIMP_DARKEN_ONLY_MODE:
+    case GIMP_LIGHTEN_ONLY_MODE:
+        gegl_node_set (node,
+           "linear",    TRUE,
+           NULL);
+        break;
+    case GIMP_OVERLAY_MODE:
+    case GIMP_DIFFERENCE_MODE:
+    case GIMP_HUE_MODE:
+    case GIMP_SATURATION_MODE:
+    case GIMP_COLOR_MODE:
+    case GIMP_VALUE_MODE:
+    case GIMP_DIVIDE_MODE:
+    case GIMP_DODGE_MODE:
+    case GIMP_BURN_MODE:
+    case GIMP_HARDLIGHT_MODE:
+    case GIMP_SOFTLIGHT_MODE:
+    case GIMP_GRAIN_EXTRACT_MODE:
+    case GIMP_GRAIN_MERGE_MODE:
+    case GIMP_COLOR_ERASE_MODE:
+    case GIMP_NEW_OVERLAY_MODE:
+    case GIMP_ERASE_MODE:
+    case GIMP_REPLACE_MODE:
+    case GIMP_ANTI_ERASE_MODE:
+    case GIMP_LCH_HUE_MODE:
+    case GIMP_LCH_CHROMA_MODE:
+    case GIMP_LCH_COLOR_MODE:
+    case GIMP_LCH_LIGHTNESS_MODE:
+    default:
+        gegl_node_set (node,
+           "linear",   FALSE,
+           NULL);
+        break;
+    }
 }
 
 void
