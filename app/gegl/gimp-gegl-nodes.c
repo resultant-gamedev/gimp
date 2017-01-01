@@ -150,15 +150,19 @@ gimp_gegl_mode_node_set_mode (GeglNode             *node,
 
   switch (mode)
     {
-    case GIMP_NORMAL_MODE:        operation = "gimp:normal-mode"; break;
+    case GIMP_NORMAL_MODE:
     case GIMP_NORMAL_SRGB_MODE:   operation = "gimp:normal-mode"; break;
     case GIMP_DISSOLVE_MODE:      operation = "gimp:dissolve-mode"; break;
     case GIMP_BEHIND_MODE:        operation = "gimp:behind-mode"; break;
+    case GIMP_MULTIPLY_SRGB_MODE: 
     case GIMP_MULTIPLY_MODE:      operation = "gimp:multiply-mode"; break;
+    case GIMP_SCREEN_SRGB_MODE:
     case GIMP_SCREEN_MODE:        operation = "gimp:screen-mode"; break;
     case GIMP_OVERLAY_MODE:       operation = "gimp:softlight-mode"; break;
     case GIMP_DIFFERENCE_MODE:    operation = "gimp:difference-mode"; break;
+    case GIMP_ADDITION_SRGB_MODE: 
     case GIMP_ADDITION_MODE:      operation = "gimp:addition-mode"; break;
+    case GIMP_SUBTRACT_SRGB_MODE:
     case GIMP_SUBTRACT_MODE:      operation = "gimp:subtract-mode"; break;
     case GIMP_DARKEN_ONLY_MODE:   operation = "gimp:darken-only-mode"; break;
     case GIMP_LIGHTEN_ONLY_MODE:  operation = "gimp:lighten-only-mode"; break;
@@ -166,6 +170,8 @@ gimp_gegl_mode_node_set_mode (GeglNode             *node,
     case GIMP_SATURATION_MODE:    operation = "gimp:saturation-mode"; break;
     case GIMP_COLOR_MODE:         operation = "gimp:color-mode"; break;
     case GIMP_VALUE_MODE:         operation = "gimp:value-mode"; break;
+
+    case GIMP_DIVIDE_SRGB_MODE:
     case GIMP_DIVIDE_MODE:        operation = "gimp:divide-mode"; break;
     case GIMP_DODGE_MODE:         operation = "gimp:dodge-mode"; break;
     case GIMP_BURN_MODE:          operation = "gimp:burn-mode"; break;
@@ -207,6 +213,7 @@ gimp_gegl_mode_node_set_mode (GeglNode             *node,
     case GIMP_MULTIPLY_MODE:
     case GIMP_SCREEN_MODE:
     case GIMP_ADDITION_MODE:
+    case GIMP_DIVIDE_MODE:
     case GIMP_SUBTRACT_MODE:
     case GIMP_DARKEN_ONLY_MODE:
     case GIMP_LIGHTEN_ONLY_MODE:
@@ -215,13 +222,17 @@ gimp_gegl_mode_node_set_mode (GeglNode             *node,
            NULL);
         break;
     case GIMP_NORMAL_SRGB_MODE:
+    case GIMP_ADDITION_SRGB_MODE:
+    case GIMP_DIVIDE_SRGB_MODE:
+    case GIMP_MULTIPLY_SRGB_MODE:
+    case GIMP_SUBTRACT_SRGB_MODE:
+    case GIMP_SCREEN_SRGB_MODE:
     case GIMP_OVERLAY_MODE:
     case GIMP_DIFFERENCE_MODE:
     case GIMP_HUE_MODE:
     case GIMP_SATURATION_MODE:
     case GIMP_COLOR_MODE:
     case GIMP_VALUE_MODE:
-    case GIMP_DIVIDE_MODE:
     case GIMP_DODGE_MODE:
     case GIMP_BURN_MODE:
     case GIMP_HARDLIGHT_MODE:
@@ -237,7 +248,7 @@ gimp_gegl_mode_node_set_mode (GeglNode             *node,
     case GIMP_LCH_CHROMA_MODE:
     case GIMP_LCH_COLOR_MODE:
     case GIMP_LCH_LIGHTNESS_MODE:
-    default:
+    //default:
         gegl_node_set (node,
            "linear",   FALSE,
            NULL);

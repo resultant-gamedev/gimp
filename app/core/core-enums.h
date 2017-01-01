@@ -154,22 +154,22 @@ GType gimp_layer_mode_effects_get_type (void) G_GNUC_CONST;
 
 typedef enum
 {
-  GIMP_NORMAL_SRGB_MODE,     /*< desc="Normal (with sRGB gamma)" >*/
+  GIMP_NORMAL_SRGB_MODE,     /*< desc="Normal (non-linear)"  >*/
   GIMP_DISSOLVE_MODE,        /*< desc="Dissolve"             >*/
   GIMP_BEHIND_MODE,          /*< desc="Behind"               >*/
-  GIMP_MULTIPLY_MODE,        /*< desc="Multiply"             >*/
-  GIMP_SCREEN_MODE,          /*< desc="Screen"               >*/
+  GIMP_MULTIPLY_SRGB_MODE,   /*< desc="Multiply (non-linear)">*/
+  GIMP_SCREEN_SRGB_MODE,     /*< desc="Screen (non-linear)"  >*/
   GIMP_OVERLAY_MODE,         /*< desc="Old broken Overlay"   >*/
   GIMP_DIFFERENCE_MODE,      /*< desc="Difference"           >*/
-  GIMP_ADDITION_MODE,        /*< desc="Addition"             >*/
-  GIMP_SUBTRACT_MODE,        /*< desc="Subtract"             >*/
+  GIMP_ADDITION_SRGB_MODE,   /*< desc="Addition (non-linear)">*/
+  GIMP_SUBTRACT_SRGB_MODE,   /*< desc="Subtract (non-linear)">*/
   GIMP_DARKEN_ONLY_MODE,     /*< desc="Darken only"          >*/
   GIMP_LIGHTEN_ONLY_MODE,    /*< desc="Lighten only"         >*/
   GIMP_HUE_MODE,             /*< desc="Hue (HSV)"            >*/
   GIMP_SATURATION_MODE,      /*< desc="Saturation (HSV)"     >*/
   GIMP_COLOR_MODE,           /*< desc="Color (HSV)"          >*/
   GIMP_VALUE_MODE,           /*< desc="Value (HSV)"          >*/
-  GIMP_DIVIDE_MODE,          /*< desc="Divide"               >*/
+  GIMP_DIVIDE_SRGB_MODE,     /*< desc="Divide (non-linear)"  >*/
   GIMP_DODGE_MODE,           /*< desc="Dodge"                >*/
   GIMP_BURN_MODE,            /*< desc="Burn"                 >*/
   GIMP_HARDLIGHT_MODE,       /*< desc="Hard light"           >*/
@@ -183,6 +183,11 @@ typedef enum
   GIMP_LCH_COLOR_MODE,       /*< desc="Color (LCH)"          >*/
   GIMP_LCH_LIGHTNESS_MODE,   /*< desc="Lightness (LCH)"      >*/
   GIMP_NORMAL_MODE,          /*< desc="Normal"               >*/
+  GIMP_MULTIPLY_MODE,        /*< desc="Multiply"             >*/
+  GIMP_DIVIDE_MODE,          /*< desc="Divide"               >*/
+  GIMP_SCREEN_MODE,          /*< desc="Screen"               >*/
+  GIMP_ADDITION_MODE,        /*< desc="Addition"             >*/
+  GIMP_SUBTRACT_MODE,        /*< desc="Subtract"             >*/
 
   /* internal modes, not available to the PDB */
   GIMP_ERASE_MODE      = 1000, /*< pdb-skip, desc="Erase"      >*/

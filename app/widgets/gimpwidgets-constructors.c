@@ -104,18 +104,21 @@ gimp_paint_mode_menu_new (gboolean with_behind_mode,
   GtkWidget    *combo;
 
   store = gimp_enum_store_new_with_values (GIMP_TYPE_LAYER_MODE_EFFECTS,
-                                           26,
+                                           31,
                                            GIMP_NORMAL_MODE,
                                            GIMP_NORMAL_SRGB_MODE,
                                            GIMP_DISSOLVE_MODE,
 
                                            GIMP_LIGHTEN_ONLY_MODE,
                                            GIMP_SCREEN_MODE,
+                                           GIMP_SCREEN_SRGB_MODE,
                                            GIMP_DODGE_MODE,
                                            GIMP_ADDITION_MODE,
+                                           GIMP_ADDITION_SRGB_MODE,
 
                                            GIMP_DARKEN_ONLY_MODE,
                                            GIMP_MULTIPLY_MODE,
+                                           GIMP_MULTIPLY_SRGB_MODE,
                                            GIMP_BURN_MODE,
 
                                            GIMP_NEW_OVERLAY_MODE,
@@ -124,9 +127,11 @@ gimp_paint_mode_menu_new (gboolean with_behind_mode,
 
                                            GIMP_DIFFERENCE_MODE,
                                            GIMP_SUBTRACT_MODE,
+                                           GIMP_SUBTRACT_SRGB_MODE,
                                            GIMP_GRAIN_EXTRACT_MODE,
                                            GIMP_GRAIN_MERGE_MODE,
                                            GIMP_DIVIDE_MODE,
+                                           GIMP_DIVIDE_SRGB_MODE,
 
                                            GIMP_HUE_MODE,
                                            GIMP_SATURATION_MODE,
@@ -142,7 +147,7 @@ gimp_paint_mode_menu_new (gboolean with_behind_mode,
                                          GIMP_DISSOLVE_MODE, -1);
 
   gimp_int_store_insert_separator_after (GIMP_INT_STORE (store),
-                                         GIMP_ADDITION_MODE, -1);
+                                         GIMP_ADDITION_SRGB_MODE, -1);
 
   gimp_int_store_insert_separator_after (GIMP_INT_STORE (store),
                                          GIMP_BURN_MODE, -1);
@@ -151,7 +156,7 @@ gimp_paint_mode_menu_new (gboolean with_behind_mode,
                                          GIMP_HARDLIGHT_MODE, -1);
 
   gimp_int_store_insert_separator_after (GIMP_INT_STORE (store),
-                                         GIMP_DIVIDE_MODE, -1);
+                                         GIMP_DIVIDE_SRGB_MODE, -1);
 
   gimp_int_store_insert_separator_after (GIMP_INT_STORE (store),
                                          GIMP_VALUE_MODE, -1);
